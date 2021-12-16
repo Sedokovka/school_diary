@@ -1,23 +1,36 @@
 package repository
 
+import (
+   _"github.com/go-sql-driver/mysql"
+      "github.com/jmoiron/sqlx"
+)
+
 type Authorization interface {
 
 }
 
-type TodoList interface {
+type Teacher interface {
 
 }
+type User interface {
 
-type TodoItem interface {
+}
+type Pupil interface {
+
+}
+type Parent interface {
 
 }
 
 type Repository struct {
   Authorization
-  TodoList
-  TodoItem
+  Teacher
+  Parent
+  Pupil
+  User
 }
 
-func NewRepository() *Repository {
+
+func NewRepository(db *sqlx.DB) *Repository {
   return &Repository{}
 }

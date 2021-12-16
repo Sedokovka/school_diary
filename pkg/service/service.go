@@ -8,18 +8,25 @@ type Authorization interface {
 
 }
 
-type TodoList interface {
+type Teacher interface {
 
 }
+type User interface {
 
-type TodoItem interface {
+}
+type Pupil interface {
+
+}
+type Parent interface {
 
 }
 
 type Service struct {
   Authorization
-  TodoList
-  TodoItem
+  Teacher
+  Parent
+  Pupil
+  User
 }
 
 func NewService(repos *repository.Repository) *Service {

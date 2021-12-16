@@ -1,8 +1,10 @@
-package todo
+package crud
 
 type User struct {
   Id int `json:"-"`
-  Name string `json:"name"`
-  Username string `json:"username"`
-  Password string `json:"password"`
+  Login string `json:"login" binding:"required"`
+  Name string `json:"name" binding:"required"`
+  Username string `json:"username" binding:"required"`
+  Password_hash string `json:"password_hash" binding:"required"`
+  Salt string `json:"salt" binding:"required"`
 }
