@@ -1,0 +1,23 @@
+{{ define "IndexHeader" }}
+<div class="container">
+  <h2> Tool List </h2>
+
+  <p>
+      <a href="/new" class="btn btn-primary">New Tool</a>
+  </p>
+  <table id="tabledata" class="display" style="width: 100%">
+    <thead>
+      <tr>
+        {{ range .Name }}
+        <th>{{ . }}</th>
+        {{ end }}
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        {{ range .Name }}
+        <th>{{ . }}</th>
+        {{ end }}
+      </tr>
+    </tfoot>
+{{ end }}

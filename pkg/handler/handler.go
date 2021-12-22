@@ -22,16 +22,16 @@ func (h *Handler) InitRoutes() *gin.Engine {
     auth.POST("/sign-in", h.signIn)
   }
 
-  api := router.Group("/api")
+  api := router.Group("/api", h.userIdentity)
   {
-    users := api.Group("/users")
-    {
-    users.POST("/", h.createUser)
-    users.GET("/", h.getAllUsers)
-    users.GET("/:id", h.getUserById)
-    users.PUT("/:id", h.updateUser)
-    users.DELETE("/:id", h.deleteUser)
-    }
+    // users := api.Group("/users")
+    // {
+    // users.POST("/", h.createUser)
+    // users.GET("/", h.getAllUsers)
+    // users.GET("/:id", h.getUserById)
+    // users.PUT("/:id", h.updateUser)
+    // users.DELETE("/:id", h.deleteUser)
+    // }
 
     teachers := api.Group("/teachers")
     {
@@ -44,11 +44,11 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
     pupils := api.Group("/pupils")
     {
-      pupils.POST("/", h.createPupil)
-      pupils.GET("/", h.getAllPupils)
-      pupils.GET("/:id", h.getPupilById)
-      pupils.PUT("/:id", h.updatePupil)
-      pupils.DELETE("/:id", h.deletePupil)
+      pupils.POST("/", h.CreatePupil)
+      pupils.GET("/", h.GetAllPupils)
+      pupils.GET("/:id", h.GetPupilById)
+      pupils.PUT("/:id", h.UpdatePupil)
+      pupils.DELETE("/:id", h.DeletePupil)
     }
 
     parents := api.Group("/parents")
