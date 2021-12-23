@@ -19,7 +19,8 @@ type User interface {
 }
 type Pupil interface {
   CreatePupil(userId int, pupil crud.Pupil) (int, error)
-
+  GetPupilById(userId, pupilId int) (crud.Pupil, error)
+  GetAllPupils(userId int) ([]crud.Pupil, error)
 }
 type Parent interface {
 
@@ -36,6 +37,6 @@ type Service struct {
 func NewService(repos *repository.Repository) *Service {
   return &Service{
     Authorization: NewAuthService(repos.Authorization),
-    Pupil: NewPupilService(repos.Authorization),
+    Pupil: NewPupilService(repos.Pupil),
   }
 }

@@ -19,6 +19,8 @@ type User interface {
 }
 type Pupil interface {
   CreatePupil(userId int, pupil crud.Pupil) (int, error)
+  GetPupilById(userId, pupilId int) (crud.Pupil, error)
+  GetAllPupils(userId int) ([]crud.Pupil, error)
 }
 type Parent interface {
 
@@ -36,6 +38,6 @@ type Repository struct {
 func NewRepository(db *sqlx.DB) *Repository {
   return &Repository{
     Authorization: NewAuthMysql(db),
-      Pupil: NewPupilMysql(db),
+    Pupil: NewPupilMysql(db),
   }
 }

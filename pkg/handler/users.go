@@ -1,9 +1,8 @@
 package handler
 
-import ("github.com/gin-gonic/gin"
-        "text/template")
+import ("github.com/gin-gonic/gin")
 
-var tmpl = template.Must(template.ParseGlob("templates/*"))
+// var tmpl = template.Must(template.ParseGlob("templates/*"))
 
 
 func (h *Handler) getAllUsers(c *gin.Context) {

@@ -10,7 +10,6 @@ import (
 func (h *Handler) signUp (c *gin.Context) {
   var input crud.User
   if err := c.BindJSON(&input); err != nil {
-    // newErrorResponse(c, http.StatusBadRequest, err.Error())
     log.Fatal(err.Error())
     return
   }
